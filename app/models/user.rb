@@ -2,6 +2,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable
 
+  include DeviseTokenAuth::Concerns::User
+
   # Associations
   has_many :sleep_records, dependent: :destroy
 

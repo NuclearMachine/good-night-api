@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::FriendsSleepRecordsController, type: :controller do
+RSpec.describe "Api::V1::FriendsSleepRecords", type: :request do
   let(:user) { create(:user) }
   let(:friend1) { create(:user) }
   let(:friend2) { create(:user) }
@@ -16,15 +16,14 @@ RSpec.describe Api::V1::FriendsSleepRecordsController, type: :controller do
   describe 'GET #index' do
     context 'when user is not signed in' do
       it 'returns unauthorized status' do
-        get :index
+        get api_v1_friends_sleep_records_path
         expect(response).to have_http_status(:unauthorized)
       end
     end
 
     context 'when user is signed in' do
       before do
-        sign_in user
-        get :index
+        get api_v1_friends_sleep_records_path, headers: auth_headers_for(user)
       end
 
       it 'returns http success' do
