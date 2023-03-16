@@ -13,7 +13,7 @@ Good Night API is a Rails API-only application that allows users to track their 
 1. Clone the repository:
 
 ```shell
-git clone https://github.com/nuclearmachine/good-night-api.git
+git clone git@github.com:NuclearMachine/good-night-api.git
 cd good-night-api
 ```
 
