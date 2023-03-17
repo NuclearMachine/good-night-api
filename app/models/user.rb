@@ -19,7 +19,7 @@ class User < ApplicationRecord
   # Validations
   validates :name, presence: true
 
-  def friends_sleep_records_past_week_ordered_by_duration
+  def friends_weekly_record
     friends_sleep_records.past_week.ordered_by_duration
   end
 end

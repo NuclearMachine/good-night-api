@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
     create(:sleep_record, user: friend2, start_time: 10.days.ago, end_time: 10.days.ago + 8.hours)
 
     expected_result = [friend1_record, friend2_record]
-    actual_result = user.friends_sleep_records_past_week_ordered_by_duration.to_a
+    actual_result = user.friends_weekly_record.to_a
 
     expect(actual_result).to eq(expected_result)
   end
